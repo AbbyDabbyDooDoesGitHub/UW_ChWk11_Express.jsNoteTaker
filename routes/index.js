@@ -1,6 +1,6 @@
 // SET CONSTANTS -----------------------------------------------------------------
 const router       = require("express").Router();
-const router_Notes = require("./api/notes");
+const router_Notes = require("./notes");
 const router_Html  = require("./html");
 
 // SET REQUESTS TO USE CORRECT PATH TO ROUTER ------------------------------------

@@ -1,18 +1,21 @@
 // SET CONSTANTS -----------------------------------------------------------------
 const router = require("express").Router();
 const uniqid = require("uniqid");
-const fs = require("fs");
+const fs     = require("fs");
 
 // ATTATCH USER NOTES VAR TO THE DB
-let userNotes = require("../../db/db.json");
+let notes = require("../db/db.json");
 
 // GET REQUEST FOR DB ------------------------------------------------------------
 router.get("/", (req, res) => {
-    return res.json(userNotes);
+    console.log("notes.js router.get ran");
+
+    return res.json(notes);
 });
 
 // SAVE A NEW NOTE ---------------------------------------------------------------
 router.post("/", (req, res) => {
+    console.log("notes.js router.post ran");
 
     // SET CONSTANTS
     const { title, text } = req.body;
@@ -27,13 +30,13 @@ router.post("/", (req, res) => {
         };
 
         // ADD TO NOTE ARRAY FROM DB
-        userNotes.push(newNote);
+        notes.push(newNote);
 
         // FORMAT THE NEW DATA
-        var userNotes_formatted = JSON.stringify(userNotes);
+        var notes_formatted = JSON.stringify(notes);
 
         // CALL FUNCTION TO WRITE TO FILE
-        writeToFile("../../db/db.json", userNotes_formatted);
+        writeToFile("../db/db.json", notes_formatted);
 
     };
   
@@ -41,6 +44,7 @@ router.post("/", (req, res) => {
 
 // DELETE A NOTE -----------------------------------------------------------------
 router.delete("/:id", (req, res) => {
+    console.log("notes.js router.delete ran");
 
     // ID TO DELETE
     const idToDelete = req.params.id;
@@ -49,13 +53,13 @@ router.delete("/:id", (req, res) => {
     const noteWithId = arr.findIndex((obj) => obj.id === idToDelete);
   
     // SPLICE NEW ARRAY
-    const userNotes_AfterDelete = array.splice(noteWithId, 1);
+    const notes_AfterDelete = array.splice(noteWithId, 1);
 
     // FORMAT THE NEW DATA
-    var userNotes_formatted = JSON.stringify(userNotes_AfterDelete);
+    var notes_formatted = JSON.stringify(notes_AfterDelete);
 
     // CALL FUNCTION TO OVERWRITE FILE
-    writeToFile("../../db/db.json", userNotes_formatted);
+    writeToFile("../db/db.json", notes_formatted);
 
 });
 

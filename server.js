@@ -1,56 +1,53 @@
-// NEED TO WRITE SERVER SCRIPT
-
-
 // REQUIRE EXPRESS.JS
 const express = require("express");
 // USE EXPRESS WHEN APP VARIABLE IS CALLED
 const app = express();
 // CREATE PATH FOR ROUTER FILES
 const routes = require("./routes");
+const writeToFile = require("./routes/writefile");
+const deleteFromArray = require("./routes/deleteid");
 // SET LOCAL PORT LOCATION
 const PORT = process.env.PORT || 3001;
 
+// Middleware for parsing application/json and urlencoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// const path = require('path');
-// const session = require('express-session');
+// Public folder made available so individual routes don't have to be created for every resource.
+app.use(express.static('public'));
+// For any routes check the router index file
+app.use('/', routes);
+
+// Server set to listen to designated port and console log that it's live on that port
+app.listen(PORT, () =>
+  console.log(`Note taking app server running on port: ${PORT}!`)
+);
 
 
-// const helpers = require('./utils/helpers');
+// var testdb = [
+//     {
+//         "title":"Test Title1",
+//         "text":"Test text1", 
+//         "id":"1",
+//     },
+//     {
+//         "title":"Test Title2",
+//         "text":"Test text2",
+//         "id":"2",
+//     },
+//     {
+//         "title":"Test Title3",
+//         "text":"Test text3",
+//         "id":"3",
+//     },
+//     {
+//         "title":"Test Title4",
+//         "text":"Test text4",
+//         "id":"4",
+//     },
+// ];
 
-// const sequelize = require('./config/connection');
+// writeToFile("./db/db.json", JSON.stringify(testdb));
 
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-
-
-
-// const hbs = exphbs.create({ helpers });
-
-// const sess = {
-//   secret: process.env.SESSION_SECRET,
-//   cookie: {
-//     maxAge: 60 * 60 * 1000,
-//   },
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new SequelizeStore({
-//     db: sequelize,
-//   }),
-// };
-
-// app.use(session(sess));
-
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
-
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(path.join(__dirname, '/public')));
-
-// app.use(routes);
-
-// sequelize.sync({ force: false }).then(() => {
-//   app.listen(PORT, () =>
-//     console.log(`Now listening: http://localhost:${PORT}`)
-//   );
-// });
+var idToDelete = "3";
+deleteFromArray(idToDelete);
