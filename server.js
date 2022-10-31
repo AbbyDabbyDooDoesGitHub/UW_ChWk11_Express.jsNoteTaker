@@ -24,6 +24,10 @@ app.listen(PORT, () =>
 );
 
 
+
+
+
+
 // var testdb = [
 //     {
 //         "title":"Test Title1",
@@ -49,5 +53,5 @@ app.listen(PORT, () =>
 
 // writeToFile("./db/db.json", JSON.stringify(testdb));
 
-var idToDelete = "3";
-deleteFromArray(idToDelete);
+// var idToDelete = "3";
+// deleteFromArray(idToDelete);
