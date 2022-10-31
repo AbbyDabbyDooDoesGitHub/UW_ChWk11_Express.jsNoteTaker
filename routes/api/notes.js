@@ -61,8 +61,7 @@ router.delete("/:id", (req, res) => {
 
 // WRITE README FILE -------------------------------------------------------------
 function writeToFile(fileName, codeToPrint) {
-    // console.log("writeToFile ran");
-    // console.log(data);
+    console.log("writeToFile ran");
 
     fs.writeFile(fileName, codeToPrint, (err) =>
       err ? console.log(err) : console.log("Successfully updated database!")
