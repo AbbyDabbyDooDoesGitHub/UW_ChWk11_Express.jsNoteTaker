@@ -10,14 +10,14 @@ const writeToFile     = require("./writefile");
 const notes = require("../db/db.json");
 
 // GET REQUEST FOR DB ------------------------------------------------------------
-router.get("/", (req, res) => {
+router.get("/notes", (req, res) => {
     console.log("notes.js router.get ran");
 
     return res.json(notes);
 });
 
 // SAVE A NEW NOTE ---------------------------------------------------------------
-router.post("/", (req, res) => {
+router.post("/notes", (req, res) => {
     console.log("notes.js router.post ran");
 
     // SET CONSTANTS
@@ -47,7 +47,7 @@ router.post("/", (req, res) => {
 });
 
 // DELETE A NOTE -----------------------------------------------------------------
-router.delete("/:id", (req, res) => {
+router.delete("/notes/:id", (req, res) => {
     console.log("notes.js router.delete ran");
 
     // ID TO DELETE

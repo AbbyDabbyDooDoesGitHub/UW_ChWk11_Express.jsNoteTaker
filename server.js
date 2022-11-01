@@ -1,24 +1,28 @@
+// ROUTES ------------------------------------------------------------------------
 // REQUIRE EXPRESS.JS
 const express = require("express");
 // USE EXPRESS WHEN APP VARIABLE IS CALLED
 const app = express();
 // CREATE PATH FOR ROUTER FILES
-const routes = require("./routes");
-const writeToFile = require("./routes/writefile");
-const deleteFromArray = require("./routes/deleteid");
+const router_Notes = require("./routes/notes");
+const router_Html  = require("./routes/html");
+
 // SET LOCAL PORT LOCATION
 const PORT = process.env.PORT || 3001;
 
-// Middleware for parsing application/json and urlencoded data
+// MIDDLEWARE --------------------------------------------------------------------
+// for parsing application/json and urlencoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Public folder made available so individual routes don't have to be created for every resource.
-app.use(express.static('public'));
-// For any routes check the router index file
-app.use('/', routes);
+// ROUTES ------------------------------------------------------------------------
+// Public folder made available
+app.use(express.static("public"));
+// Notes and Html routes
+app.use("/api", router_Notes);
+app.use("/", router_Html);
 
-// Server set to listen to designated port and console log that it's live on that port
+// CONSOLE LOG WHEN SERVER IS RUNNING --------------------------------------------
 app.listen(PORT, () =>
   console.log(`Note taking app server running on port: ${PORT}!`)
 );
@@ -26,32 +30,33 @@ app.listen(PORT, () =>
 
 
 
+const writeToFile = require("./routes/writefile");
+const deleteFromArray = require("./routes/deleteid");
 
-
-// var testdb = [
+// var testdb = `[
 //     {
 //         "title":"Test Title1",
 //         "text":"Test text1", 
-//         "id":"1",
+//         "id":"1"
 //     },
 //     {
 //         "title":"Test Title2",
 //         "text":"Test text2",
-//         "id":"2",
+//         "id":"2"
 //     },
 //     {
 //         "title":"Test Title3",
 //         "text":"Test text3",
-//         "id":"3",
+//         "id":"3"
 //     },
 //     {
 //         "title":"Test Title4",
 //         "text":"Test text4",
-//         "id":"4",
-//     },
-// ];
+//         "id":"4"
+//     }
+// ]`;
 
-// writeToFile("./db/db.json", JSON.stringify(testdb));
+// writeToFile("./db/db.json", testdb);
 
-// var idToDelete = "3";
-// deleteFromArray(idToDelete);
+var idToDelete = "3";
+deleteFromArray(idToDelete);
