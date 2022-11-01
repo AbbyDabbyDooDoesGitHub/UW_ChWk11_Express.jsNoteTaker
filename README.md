@@ -4,15 +4,14 @@
 Modify starter code to create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file. The application’s front end has already been created. It's your job to build the back end, connect the two, and then deploy the entire application to Heroku.
 ```
 
-### Link to Web App: 
+<!-- ### Link to Web App:  -->
 <!-- LINK TO DEPLOYMENT HERE -->
 
-### App Preview:
+<!-- ### App Preview: -->
 <!-- Replace with path to screenshot   ![My Password Generator Screenshot](./Assets/MyPasswordGeneratorScreenShot.PNG "My Password Generator Screenshot") -->
 
 ## Notes
-
-<!-- Use this area to add personal notes on implementation, etc -->
+Currently the ```writeToFile``` and ```deleteFromArray``` functions work, but the routes are not connecting to the front end. This is not deployed to Heroku yet. The building blocks are in place, but there is a disconnect somewhere that elludes me at this time.
 
 ## User Story
 

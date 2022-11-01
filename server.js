@@ -58,5 +58,5 @@ const deleteFromArray = require("./routes/deleteid");
 
 // writeToFile("./db/db.json", testdb);
 
-var idToDelete = "3";
-deleteFromArray(idToDelete);
+// var idToDelete = "3";
+// deleteFromArray(idToDelete);
