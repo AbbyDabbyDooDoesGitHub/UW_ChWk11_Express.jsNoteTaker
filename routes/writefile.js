@@ -9,6 +9,8 @@ function writeToFile(fileName, codeToPrint) {
       err ? console.log(err) : console.log("Successfully updated database!")
     );
 
+    location.reload();
+
 }
 
 // EXPORT WRITEFILE --------------------------------------------------------------

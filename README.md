@@ -7,11 +7,8 @@ Modify starter code to create an application called Note Taker that can be used 
 ### Link to Web App: 
 https://uw-expressjs-note-taker.herokuapp.com/
 
-<!-- ### App Preview: -->
-<!-- Replace with path to screenshot   ![My Password Generator Screenshot](./Assets/MyPasswordGeneratorScreenShot.PNG "My Password Generator Screenshot") -->
-
-## Notes
-Currently the ```writeToFile``` and ```deleteFromArray``` functions work, but the routes are not connecting to the front end. This is not deployed to Heroku yet. The building blocks are in place, but there is a disconnect somewhere that elludes me at this time.
+### App Preview:
+![My Note Taker Screenshot](./public/assets/img/Express-NoteTaker_Home_Screenshot.PNG "My Note Taker Screenshot")
 
 ## User Story
 
