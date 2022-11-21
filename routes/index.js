@@ -6,8 +6,7 @@ const noteRoutes = require('./notes');
 const htmlRoutes = require('./html');
 
 // Match requests with correct routes
-router.use('/api/notes', noteRoutes);
 router.use('/', htmlRoutes);
-
+router.use('/api/notes', noteRoutes);
 
 module.exports = router;

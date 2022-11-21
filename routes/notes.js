@@ -14,7 +14,7 @@ router.get("/notes", (req, res) => {
 });
 
 // SAVE A NEW NOTE ---------------------------------------------------------------
-router.post("/", (req, res) => {
+router.post("/notes", (req, res) => {
 
     console.log("notes.js - save a NEW note function ran");
 
@@ -56,11 +56,13 @@ router.post("/", (req, res) => {
 
 
 // DELETE A NOTE -----------------------------------------------------------------
-router.delete("/:id", (req, res) => {
+router.delete("/notes/:id", (req, res) => {
 
     console.log("notes.js - delete a note function ran");
 
     const id = req.params.id;
+
+    console.log(id);
 
     // IF THERE'S AN ID
     if(id) {
